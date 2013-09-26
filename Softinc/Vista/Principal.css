@@ -12,7 +12,7 @@
 #menu li{
     float: left;
     list-style: none;
-    background: url(images/img02.gif) no-repeat;
+    background: url(C:/wamp/www/Softinc/images/img02.gif) no-repeat;
     margin-right: 3px;
 }
 #menu a{
@@ -36,14 +36,14 @@
 	height: 280px;/* altura de la imagen*/
 	margin: 0 auto;
 	padding: 0px;
-	background: url(images/img06.gif) no-repeat;
+	background: url(C:/wamp/www/Softinc/images/img06.gif) no-repeat;
 }
 
 #pagina{
 	width: 940px;
 	margin: 0 auto;
 	padding: 0px 0px 0px 40px;
-	background: url(images/img03.gif) repeat-y left top;
+	background: url(C:/wamp/www/Softinc/images/img03.gif) repeat-y left top;
 }
 
 #buscador{
