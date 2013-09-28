@@ -6,5 +6,6 @@
     </head>
     <body>
        <h1> softinc</h1>
+       <a href="Vista/Principal.html">Principal Vista</a>
     </body>
 </html>
