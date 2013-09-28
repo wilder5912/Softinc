@@ -5,8 +5,6 @@
         <title></title>
     </head>
     <body>
-        <?php
-        // put your code here
-        ?>
+       <h1> softinc</h1>
     </body>
 </html>
