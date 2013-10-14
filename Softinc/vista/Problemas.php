@@ -12,7 +12,12 @@ class Problemas {
         $this->generarTabla();
     }
     function generarTabla(){
+<<<<<<< HEAD
         include("../modelo/cnx.php");
+=======
+        include("../Modelo/cnx.php");
+        
+>>>>>>> 9bd3d969aa3cc2b920a82c21ef25b943d75451a9
         $cnx = pg_connect($entrada) or die ("Error de conexion. ". pg_last_error());
         $seleccionar='SELECT id_problema  FROM problema;';
         $result     = pg_query($seleccionar) or die('ERROR AL INSERTAR DATOS: ' . pg_last_error());
