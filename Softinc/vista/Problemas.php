@@ -1,12 +1,10 @@
 <?php
 
-
 class Problemas {
     
     public $titulo;
     public $cuerpo;
 
-    
     function __construct() {
         $this->titulo=array();
         $this->cuerpo=array();
@@ -15,9 +13,7 @@ class Problemas {
     }
     function generarTabla(){
         include("../modelo/cnx.php");
-        
         $cnx = pg_connect($entrada) or die ("Error de conexion. ". pg_last_error());
-        //echo "Conexion exitosa<br>";
         $seleccionar='SELECT id_problema  FROM problema;';
         $result     = pg_query($seleccionar) or die('ERROR AL INSERTAR DATOS: ' . pg_last_error());
         $columnas   = pg_numrows($result);
@@ -38,13 +34,9 @@ class Problemas {
 
                     </tr>
                 </tbody>';
-
-        }
-        
-    }
-    
+        }   
+    }   
 }
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -56,7 +48,6 @@ class Problemas {
     </head>
     <body>
         <h1>BANCO DE PREGUNTAS</h1>
-        <label>{tabla}</label>
         <table>
       <?php
       $p=new Problemas();
