@@ -14,7 +14,7 @@ class Problemas {
         $this->generarTabla();
     }
     function generarTabla(){
-        include("../modelo/cnx.php");
+        include("../Modelo/cnx.php");
         
         $cnx = pg_connect($entrada) or die ("Error de conexion. ". pg_last_error());
         //echo "Conexion exitosa<br>";
