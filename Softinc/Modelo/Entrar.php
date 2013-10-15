@@ -28,10 +28,10 @@ $pass = $_POST['pass'];
        echo $_SESSION["user_usuario"]    = $datos["user_usuario"];
        echo $_SESSION["pass_usuario"]    = $datos["pass_usuario"];
        if(!strcmp($datos["id_rol"], "1")){
-       header("Location: ../vista/Comite.php");
+            header("Location: ../vista/Comite.php");
        }
-       else{
-           echo "solo permitido para comite";
+       else if(!strcmp($datos["id_rol"], "2")){
+            header("Location: ../vista/Administrador.php");
        }
 } else {
  

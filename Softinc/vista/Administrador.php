@@ -12,14 +12,14 @@ session_start();
     </head>
     <body>
         bienvenid@ a juez SOFT-INC: <?php echo $_SESSION["nombre_usuario"];  ?><br>
-        <form method="post" action="../controlador/ControlComite.php">
-            <b>Seccion comite academico</b><br>
+        <form method="post" action="../controlador/ControlADM.php">
+            <b>Seccion Administrador</b><br>
             <b>Que desea hacer</b><br>
-                <select name = "accionComite">
+                <select name = "accionAdministrador">
                     
-                    <option value = "crear">Crear nuevo Problema</option>
-                    <option value = "editar">Editar problema</option>
-                    <option value = "eliminar">Eliminar problema</option>
+                    <option value = "ver">Ver todos los usuarios</option>
+                    <option value = "permisos">Modificar permisos</option>
+                    <option value = "configurar">Configurar Evaluacion</option>
                 </select>
             <input type="submit" value="realizar" name="Realizar">
         </form>
