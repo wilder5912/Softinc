@@ -30,7 +30,7 @@
            echo "<tr class='texto'>
 		 <td>". $dato['nombre_usuario']." </td>
 		 <td>". $dato['apellido_usuario']." </td>"; 
-           	 echo "<td> <input type = 'radio' name =  $dato['id_animal'] id = $dato['id_animal'] size='40'  maxlength='40' value='administrador'  /></td>
+           	// echo "<td> <input type = 'radio' name =  $dato['id_animal'] id = $dato['id_animal'] size='40'  maxlength='40' value='administrador'  /></td>
             </tr>";
                 //size='40' maxlength='40' value='java' checked
 	 } 

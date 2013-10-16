@@ -2,17 +2,20 @@
 <!DOCTYPE html>
 <html>
     <head>
-        
-        <title> Problemas </title>
-         
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   
     </head>
     <body>
 
-      <?php
-        echo $p->titulo;
-        echo $p->formu;
-      ?>
+        
+        <form method="post" action="../controlador/ControlEliminar.php">
+             <?php
+             require  '../Modelo/Consulta.php';
+                $p=new Consulta();
+                echo $p->generarTablaEliminarProblema();
+             ?>
+        <input type="submit" value="eliminar" name="eliminar">
+        </form>
+
 
     </body>
 
