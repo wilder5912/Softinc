@@ -92,8 +92,9 @@ function generarTablaEliminarProblema(){
         session_start();
         $cnx = pg_connect($entrada) or die ("Error de conexion. ". pg_last_error());
         $seleccionar=   'SELECT id_usuario, rol.nombre_tipo, nombre_usuario, apellido_usuario, ci_usuario, institucion_usuario
-  FROM usuario, rol
-  where usuario.id_rol=rol.id_rol';
+                         FROM usuario, rol
+                         where usuario.id_rol=rol.id_rol 
+                               order by id_usuario;';
         
         $result     = pg_query($seleccionar) or die('ERROR AL INSERTAR DATOS: ' . pg_last_error());
         $columnas   = pg_numrows($result);
@@ -101,23 +102,29 @@ function generarTablaEliminarProblema(){
         for($i=0;$i<=$columnas-1; $i++){
             $line = pg_fetch_array($result, null, PGSQL_ASSOC);
   
-$this->formu.='<tr>             
-               <td>'.$line['id_usuario'].'</td> <td>'.$line['rol.nombre_tipo'].'</td> <td>'.$line['nombre_usuario'].'</td>
-               <td>'.$line['apellido_usuario'].'</td> <td>'.$line['ci_usuario'].'</td> <td>'.$line['institucion_usuario'].'</td>
-               <td><input type="radio" name="rol" value="1">Sin estudios<br>
-               <input type="radio" name="rol" value="2">Primario<br>
-               <input type="radio" name="rol" value="3">Secundario<br>
-               <input type="radio" name="rol" value="4">Universitario<br>
+               $this->formu.='<tr>             
+               <td>'.$line['id_usuario'].'</td> 
+               <td>'.$line['nombre_tipo'].'</td> 
+               <td>'.$line['nombre_usuario'].'</td>
+               <td>'.$line['apellido_usuario'].'</td> 
+               <td>'.$line['ci_usuario'].'</td> 
+               <td>'.$line['institucion_usuario'].'</td>
+               <td><input type="CHECKBOX" name="rol[]" value='.$line['id_usuario']."_3_".'   > olimpista
+                   <input type="CHECKBOX" name="rol[]" value='.$line['id_usuario']."_2_".'>comite   
+                   <input type="CHECKBOX" name="rol[]" value='.$line['id_usuario']."_1_".'>administrador</td>
                </tr>';
-             
-             
-             
              
         }  
         $this->formu.='</table>';
         return $this->formu;
     }
+    function existe($usuario, $rol){
+        
+    }
+    
+    
 }
-//$c=new Consulta();
-//echo $c->generarTablaEliminarProblema();
+$miclase=new Consulta();
+   echo  $miclase->generarPermisos();
+
 ?>

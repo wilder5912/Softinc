@@ -20,9 +20,11 @@ session_start();
                     <option value = "crear">Crear nuevo Problema</option>
                     <option value = "editar">Editar problema</option>
                     <option value = "eliminar">Eliminar problema</option>
+                    <option value = "ver">Ver Perfil</option>
+                    <option value = "ranking">Ver Ranking</option>
+                    <option value = "Descargar">Descargar Solucion</option>
                 </select>
             <input type="submit" value="realizar" name="Realizar">
         </form>
-    </body>
-        
+    </body>   
 </html>

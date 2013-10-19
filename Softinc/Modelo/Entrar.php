@@ -27,11 +27,14 @@ $pass = $_POST['pass'];
        echo $_SESSION["ci_usuario"]      = $datos["ci_usuario"];
        echo $_SESSION["user_usuario"]    = $datos["user_usuario"];
        echo $_SESSION["pass_usuario"]    = $datos["pass_usuario"];
-       if(!strcmp($datos["id_rol"], "1")){
+       if(!strcmp($datos["id_rol"], "2")){
             header("Location: ../vista/Comite.php");
        }
-       else if(!strcmp($datos["id_rol"], "2")){
+       else if(!strcmp($datos["id_rol"], "1")){
             header("Location: ../vista/Administrador.php");
+       }
+       else if(!strcmp($datos["id_rol"], "3")){
+            header("Location: ../vista/Olimpista.php");
        }
 } else {
  
