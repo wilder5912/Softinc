@@ -8,7 +8,7 @@ if($accion=="ver"){
     include '../vista/VerUsuarios.php';
 }
 if($accion=="permisos"){
-    
+    require '../vista/Permisos.php';
 }
 if($accion=="configurar"){
     

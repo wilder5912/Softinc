@@ -10,10 +10,11 @@ if($accion=="editar"){
 }
 if($accion=="eliminar"){
 
-     include '../Modelo/Consulta.php';
-        $p=new Consulta();
-        $p->generarTablaEliminarProblema();
-     include('../vista/EliminarProblema.php');
+    
+         
+    require('../vista/EliminarProblema.php');
 }
+
+
 
 ?>
