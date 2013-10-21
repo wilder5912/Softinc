@@ -5,8 +5,8 @@ session_start();
  include("cnx.php");
  $cnx = pg_connect($entrada) or die ("Error de conexion. ". pg_last_error());
  
-$user = $_POST['user'];
-$pass = $_POST['pass'];
+$user = $_POST['login'];
+$pass = $_POST['password'];
  
 //$pass=sha1(md5($pass));
  
@@ -14,24 +14,27 @@ $pass = $_POST['pass'];
                   user_usuario, pass_usuario, institucion_usuario
                   FROM usuario
                   where user_usuario='$user' and pass_usuario='$pass';";
+   
     $result     = pg_query($seleccionar) or die('ERROR AL INSERTAR DATOS: ' . pg_last_error());
     
 
 
     if(pg_numrows($result)){
         $datos = pg_fetch_array($result, null, PGSQL_ASSOC);
-       echo $_SESSION["id_usuario"]      = $datos["id_usuario"];
-       echo $_SESSION["id_rol"]          = $datos["id_rol"];
-       echo $_SESSION["nombre_usuario"]  = $datos["nombre_usuario"];
-       echo $_SESSION["apellido_usuario"]= $datos["apellido_usuario"];
-       echo $_SESSION["ci_usuario"]      = $datos["ci_usuario"];
-       echo $_SESSION["user_usuario"]    = $datos["user_usuario"];
-       echo $_SESSION["pass_usuario"]    = $datos["pass_usuario"];
+//       echo $_SESSION["id_usuario"]      = $datos["id_usuario"];
+//       echo $_SESSION["id_rol"]          = $datos["id_rol"];
+//       echo $_SESSION["nombre_usuario"]  = $datos["nombre_usuario"];
+//       echo $_SESSION["apellido_usuario"]= $datos["apellido_usuario"];
+//       echo $_SESSION["ci_usuario"]      = $datos["ci_usuario"];
+//       echo $_SESSION["user_usuario"]    = $datos["user_usuario"];
+//       echo $_SESSION["pass_usuario"]    = $datos["pass_usuario"];
        if(!strcmp($datos["id_rol"], "1")){
-            header("Location: ../vista/Comite.php");
+            //header("Location: ../vista/Comite.php");
+           echo true;
        }
        else if(!strcmp($datos["id_rol"], "2")){
-            header("Location: ../vista/Administrador.php");
+            //header("Location: ../vista/Administrador.php");
+            echo true;
        }
 } else {
  
@@ -39,5 +42,5 @@ echo "<h2>Login o Password Incorrectos</h2>";
  
 }
  
-?>
+?>l
 
