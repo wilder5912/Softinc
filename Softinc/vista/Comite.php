@@ -17,8 +17,8 @@ session_start();
             <b>Que desea hacer</b><br>
                 <select name = "accionComite">
                     
-                    <option value = "crear">Crear nuevo Problema</option>
-                    <option value = "editar">Editar problema</option>
+                    <option value = "crear">Crear Nuevo Problema</option>
+                    <option value = "subir">Subir Archivos</option>
                     <option value = "eliminar">Eliminar problema</option>
                     <option value = "ver">Ver Perfil</option>
                     <option value = "ranking">Ver Ranking</option>
