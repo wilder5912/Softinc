@@ -63,9 +63,15 @@ class CreadorArchivos {
                     }
                  
                 $nomProblema=$line['id_problema'];
+<<<<<<< HEAD
                 mkdir("../archivo_comite/$nomProblema");
                 move_uploaded_file($nombreArchivoServidor, "../archivo_comite/$nomProblema/".$archivo); 
                 rename("../archivo_comite/$nomProblema/".$archivo ,"../archivo_comite/$nomProblema/$nomProblema.pdf");
+=======
+                mkdir("../archivo/$nomProblema");
+                move_uploaded_file($nombreArchivoServidor, "../archivo/$nomProblema/".$archivo); 
+                rename("../archivo/$nomProblema/".$archivo ,"../archivo/$nomProblema/$nomProblema.pdf");
+>>>>>>> 7af28e3066fd6347b07319c2430951ea6150d287
                 
  
 

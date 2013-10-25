@@ -1,7 +1,12 @@
 
 <?php 
+<<<<<<< HEAD
 class Juzgar {
     
+=======
+class Juzgar 
+{
+>>>>>>> 7af28e3066fd6347b07319c2430951ea6150d287
                private $nombreArchivo;
                private $numerador;
                private $mensaje;
@@ -20,10 +25,19 @@ class Juzgar {
         include 'cronometro.php' ;
          $casio = new cronometro();
          $compilar="falla";
+<<<<<<< HEAD
       
        
            if(!strcmp($lenguaje, "java"))
         { 
+=======
+          $bandera=true;
+       
+       if(!strcmp($lenguaje, "java") )
+        { 
+               if(exiteArchivo("../archivo_comite/",$titulo)==true)//--------------------
+              {
+>>>>>>> 7af28e3066fd6347b07319c2430951ea6150d287
             $texto = file_get_contents("$CodigoFuente");
             //$texto = nl2br($texto);
             $nombreSinExtencion=explode(".",$CodigoFuente);
@@ -48,22 +62,37 @@ class Juzgar {
                //echo ".........................".$nombreSinExtencion[0]."....................";  
                 $tipo1 = array ("in");
                 $tipo2 = array ("sol");
+<<<<<<< HEAD
                $entrada=listar_ficheros($tipo1,"../archivo/problema/1/");
                $solucion=listar_ficheros($tipo2,"../archivo/olimpista/1/");
+=======
+               $entrada=listar_ficheros($tipo1,"../archivo_comite/1/");
+               $solucion=listar_ficheros($tipo2,"../archivo_olimpista/1/");
+>>>>>>> 7af28e3066fd6347b07319c2430951ea6150d287
              for($i=0;$i< sizeof($solucion);$i++)
                {
                 
                    $j=$i+1;
+<<<<<<< HEAD
                 exec( "java $nombreSinExtencion[0] < ../archivo/problema/$titulo/$entrada[$i]  >../archivo/olimpista/$titulo/$solucion[$i]");
             
                eliminafila("../archivo/olimpista/$titulo/$solucion[$i]");
+=======
+                exec( "java $nombreSinExtencion[0] < ../archivo_comite/$titulo/$entrada[$i]  >../archivo_olimpista/$titulo/$solucion[$i]");
+            
+               eliminafila("../archivo_olimpista/$titulo/$solucion[$i]");
+>>>>>>> 7af28e3066fd6347b07319c2430951ea6150d287
                }
               
                if(($casio->stop(true, 2)) <30  )  
                {
                    $compilar="bueno";
                    //echo "holas1";
+<<<<<<< HEAD
                if( CantidadDirencia("../archivo/olimpista/$titulo/", "../archivo/problema/$titulo/",$titulo) == 0)
+=======
+               if( CantidadDirencia("../archivo_olimpista/$titulo/", "../archivo_comite/$titulo/",$titulo) == 0)
+>>>>>>> 7af28e3066fd6347b07319c2430951ea6150d287
                    {
                   // echo "holas2";
                    $usuariosube="insert into solucion_olimpista(id_lenguaje,id_problema,texto_solucion_olimpista,codigo_solucion_olimpista) values (1,1,'$texto',$titulo);";
@@ -79,10 +108,17 @@ class Juzgar {
                    echo "yes";
                      
                  }else{
+<<<<<<< HEAD
                      if(leerOutputFormatError("../archivo/olimpista/$titulo/", "../archivo/problema/$titulo/",$titulo)=="yes")
                      {
                        //  echo "entro--------------------------------------------------------------------";
                      if(leerWronGanswer("../archivo/olimpista/$titulo/", "../archivo/problema/$titulo/") >0)
+=======
+                     if(leerOutputFormatError("../archivo_olimpista/$titulo/", "../archivo_comite/$titulo/",$titulo)=="yes")
+                     {
+                       //  echo "entro--------------------------------------------------------------------";
+                     if(leerWronGanswer("../archivo_olimpista/$titulo/", "../archivo_comite/$titulo/") >0)
+>>>>>>> 7af28e3066fd6347b07319c2430951ea6150d287
                      {
                          $usuariosube="insert into solucion_olimpista(id_lenguaje,id_problema,texto_solucion_olimpista,codigo_solucion_olimpista) values (1,1,'$texto',$titulo);";
                     pg_query($usuariosube);
@@ -92,7 +128,11 @@ class Juzgar {
                     {
                         $num = $arreglo['id_solucion_olimpista'];
                     }
+<<<<<<< HEAD
                     $porsentage=calificarPregunta("../archivo/olimpista/$titulo/", "../archivo/problema/$titulo/",$titulo);                   
+=======
+                    $porsentage=calificarPregunta("../archivo_olimpista/$titulo/", "../archivo_comite/$titulo/",$titulo);                   
+>>>>>>> 7af28e3066fd6347b07319c2430951ea6150d287
                    
                    
                    $respuesta="insert into calificacion(id_solucion_olimpista,nota_calificacion ,mensaje_calificacion) values ($num,$porsentage,'RUNTIME ERROR');";
@@ -101,7 +141,11 @@ class Juzgar {
                          echo "RUNTIME ERROR";
                      }
                      
+<<<<<<< HEAD
                      if(leerWronGanswer("../archivo/olimpista/$titulo/", "../archivo/problema/$titulo/")==0)
+=======
+                     if(leerWronGanswer("../archivo_olimpista/$titulo/", "../archivo_comite/$titulo/")==0)
+>>>>>>> 7af28e3066fd6347b07319c2430951ea6150d287
                      {
                          $usuariosube="insert into solucion_olimpista(id_lenguaje,id_problema,texto_solucion_olimpista,codigo_solucion_olimpista) values (1,1,'$texto',$titulo);";
                     pg_query($usuariosube);
@@ -148,18 +192,36 @@ class Juzgar {
                    echo "exsepcion time";
                }
             }
+        }else{
+            echo "archivos no exiten";
+            $bandera=false;
         }
+        }
+<<<<<<< HEAD
         if(!strcmp($lenguaje, "c"))
         
         { // solo para lenguaje c
+=======
+       
+        if(!strcmp($lenguaje, "c"))//*************************************************************************
+        {
+               if(exiteArchivo("../archivo_comite/",$titulo)==true)//--------------------
+              {
+            $texto = file_get_contents("$CodigoFuente");
+            //$texto = nl2br($texto);
+            $nombreSinExtencion=explode(".",$CodigoFuente);
+>>>>>>> 7af28e3066fd6347b07319c2430951ea6150d287
            
-            $this->nombreArchivo=substr($CodigoFuente,0,strrpos($CodigoFuente, '.'));  
-            $nombreSinExtencion=explode(".",$CodigoFuente); 
             if(file_exists("$nombreSinExtencion[0].exe") == 1)
             {
-                unlink("$nombreSinExtencion[0].exe");   
+                 //echo "$nombreSinExtencion[0].class";
+                 
+                 unlink("$nombreSinExtencion[0].exe");
+               
             }
+           // echo "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&"; 
             
+<<<<<<< HEAD
             exec( "powershell.exe gcc -o $this->nombreArchivo $CodigoFuente");
                    
                if(file_exists("$nombreSinExtencion[0].class") == 1)
@@ -175,6 +237,12 @@ class Juzgar {
            // exec("java principal < ../archivo/problema/1/1.in  >../archivo/olimpista/1/1.out");
            //echo file_exists("$nombreSinExtencion[0].class");
             if(file_exists("$nombreSinExtencion[0].class") == 1)  
+=======
+            exec("powershell.exe gcc -o $CodigoFuente  $nombreSinExtencion[0] ");
+           // exec("java principal < ../archivo/problema/1/1.in  >../archivo/olimpista/1/1.out");
+           //echo file_exists("$nombreSinExtencion[0].class");
+            if(file_exists("$nombreSinExtencion[0].exe") == 1)  
+>>>>>>> 7af28e3066fd6347b07319c2430951ea6150d287
             { 
                 $compilar="bueno";
                 $this->nombreArchivo = substr($CodigoFuente,0,strrpos($CodigoFuente, '.'));   
@@ -182,22 +250,37 @@ class Juzgar {
                //echo ".........................".$nombreSinExtencion[0]."....................";  
                 $tipo1 = array ("in");
                 $tipo2 = array ("sol");
+<<<<<<< HEAD
                $entrada=listar_ficheros($tipo1,"../archivo/problema/1/");
                $solucion=listar_ficheros($tipo2,"../archivo/olimpista/1/");
+=======
+               $entrada=listar_ficheros($tipo1,"../archivo_comite/1/");
+               $solucion=listar_ficheros($tipo2,"../archivo_olimpista/1/");
+>>>>>>> 7af28e3066fd6347b07319c2430951ea6150d287
              for($i=0;$i< sizeof($solucion);$i++)
                {
                 
                    $j=$i+1;
+<<<<<<< HEAD
             exec( "java $nombreSinExtencion[0] < ../archivo/problema/$titulo/$entrada[$i]  >../archivo/olimpista/$titulo/$solucion[$i]");
             
                eliminafila("../archivo/olimpista/$titulo/$solucion[$i]");
+=======
+                exec( " $nombreSinExtencion[0].exe < ../archivo_comite/$titulo/$entrada[$i]  >../archivo_olimpista/$titulo/$solucion[$i]");
+            
+               eliminafila("../archivo_olimpista/$titulo/$solucion[$i]");
+>>>>>>> 7af28e3066fd6347b07319c2430951ea6150d287
                }
               
                if(($casio->stop(true, 2)) <30  )  
                {
                    $compilar="bueno";
                    //echo "holas1";
+<<<<<<< HEAD
                if( CantidadDirencia("../archivo/olimpista/$titulo/", "../archivo/problema/$titulo/",$titulo) == 0)
+=======
+               if( CantidadDirencia("../archivo_olimpista/$titulo/", "../archivo_comite/$titulo/",$titulo) == 0)
+>>>>>>> 7af28e3066fd6347b07319c2430951ea6150d287
                    {
                   // echo "holas2";
                    $usuariosube="insert into solucion_olimpista(id_lenguaje,id_problema,texto_solucion_olimpista,codigo_solucion_olimpista) values (1,1,'$texto',$titulo);";
@@ -213,10 +296,17 @@ class Juzgar {
                    echo "yes";
                      
                  }else{
+<<<<<<< HEAD
                      if(leerOutputFormatError("../archivo/olimpista/$titulo/", "../archivo/problema/$titulo/",$titulo)=="yes")
                      {
                        //  echo "entro--------------------------------------------------------------------";
                      if(leerWronGanswer("../archivo/olimpista/$titulo/", "../archivo/problema/$titulo/") >0)
+=======
+                     if(leerOutputFormatError("../archivo_olimpista/$titulo/", "../archivo_comite/$titulo/",$titulo)=="yes")
+                     {
+                       //  echo "entro--------------------------------------------------------------------";
+                     if(leerWronGanswer("../archivo_olimpista/$titulo/", "../archivo_comite/$titulo/") >0)
+>>>>>>> 7af28e3066fd6347b07319c2430951ea6150d287
                      {
                          $usuariosube="insert into solucion_olimpista(id_lenguaje,id_problema,texto_solucion_olimpista,codigo_solucion_olimpista) values (1,1,'$texto',$titulo);";
                     pg_query($usuariosube);
@@ -226,7 +316,11 @@ class Juzgar {
                     {
                         $num = $arreglo['id_solucion_olimpista'];
                     }
+<<<<<<< HEAD
                     $porsentage=calificarPregunta("../archivo/olimpista/$titulo/", "../archivo/problema/$titulo/",$titulo);                   
+=======
+                    $porsentage=calificarPregunta("../archivo_olimpista/$titulo/", "../archivo_comite/$titulo/",$titulo);                   
+>>>>>>> 7af28e3066fd6347b07319c2430951ea6150d287
                    
                    
                    $respuesta="insert into calificacion(id_solucion_olimpista,nota_calificacion ,mensaje_calificacion) values ($num,$porsentage,'RUNTIME ERROR');";
@@ -235,7 +329,11 @@ class Juzgar {
                          echo "RUNTIME ERROR";
                      }
                      
+<<<<<<< HEAD
                      if(leerWronGanswer("../archivo/olimpista/$titulo/", "../archivo/problema/$titulo/")==0)
+=======
+                     if(leerWronGanswer("../archivo_olimpista/$titulo/", "../archivo_comite/$titulo/")==0)
+>>>>>>> 7af28e3066fd6347b07319c2430951ea6150d287
                      {
                          $usuariosube="insert into solucion_olimpista(id_lenguaje,id_problema,texto_solucion_olimpista,codigo_solucion_olimpista) values (1,1,'$texto',$titulo);";
                     pg_query($usuariosube);
@@ -282,6 +380,7 @@ class Juzgar {
                    echo "exsepcion time";
                }
             }
+<<<<<<< HEAD
         }
         if(!strcmp($lenguaje, "c"))
         
@@ -423,11 +522,51 @@ class Juzgar {
            
             $this->nombreArchivo=substr($CodigoFuente,0,strrpos($CodigoFuente, '.'));  
             $nombreSinExtencion=explode(".",$CodigoFuente); 
+=======
+        }else{
+            echo "archivos no exiten";
+            $bandera=false;
+        }
+        }
+        
+        if(!strcmp($lenguaje, "cpp"))
+        {  
+               if(exiteArchivo("../archivo_comite/",$titulo)==true)//--------------------
+              {
+            $texto = file_get_contents("$CodigoFuente");
+            //$texto = nl2br($texto);
+            $nombreSinExtencion=explode(".",$CodigoFuente);
+           
+>>>>>>> 7af28e3066fd6347b07319c2430951ea6150d287
             if(file_exists("$nombreSinExtencion[0].exe") == 1)
             {
-                unlink("$nombreSinExtencion[0].exe");   
+                 //echo "$nombreSinExtencion[0].class";
+                 
+                 unlink("$nombreSinExtencion[0].exe");
+               
             }
+           // echo "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&"; 
             
+            exec("powershell.exe g++ -o $CodigoFuente  $nombreSinExtencion[0] ");
+           // exec("java principal < ../archivo/problema/1/1.in  >../archivo/olimpista/1/1.out");
+           //echo file_exists("$nombreSinExtencion[0].class");
+            if(file_exists("$nombreSinExtencion[0].exe") == 1)  
+            { 
+                $compilar="bueno";
+                $this->nombreArchivo = substr($CodigoFuente,0,strrpos($CodigoFuente, '.'));   
+              
+               //echo ".........................".$nombreSinExtencion[0]."....................";  
+                $tipo1 = array ("in");
+                $tipo2 = array ("sol");
+               $entrada=listar_ficheros($tipo1,"../archivo_comite/1/");
+               $solucion=listar_ficheros($tipo2,"../archivo_olimpista/1/");
+             for($i=0;$i< sizeof($solucion);$i++)
+               {
+                
+                   $j=$i+1;
+                exec( "$nombreSinExtencion[0].exe < ../archivo_comite/$titulo/$entrada[$i]  >../archivo_olimpista/$titulo/$solucion[$i]");
+            
+<<<<<<< HEAD
             exec( "powershell.exe gcc -o $this->nombreArchivo $CodigoFuente");
                    
                 if(file_exists("$nombreSinExtencion[0].exe") == 1)  
@@ -461,14 +600,26 @@ class Juzgar {
                  
                //$tiempoFinal = microtimefloat();
               //  echo "según mi reloj, este script se demoró " . $casio->stop(true, 2) . " segundos en su ejecucion";
+=======
+               eliminafila("../archivo_olimpista/$titulo/$solucion[$i]");
+               }
+              
+>>>>>>> 7af28e3066fd6347b07319c2430951ea6150d287
                if(($casio->stop(true, 2)) <30  )  
                {
                    $compilar="bueno";
                    //echo "holas1";
+<<<<<<< HEAD
                if( CantidadDirencia("../archivo/salida/$titulo.out", "../archivo/solucion/$titulo.sol") == 0)
                    {
                   // echo "holas2";
                    $usuariosube="insert into solucion_olimpista(id_lenguaje,id_problema,texto_solucion_olimpista,codigo_solucion_olimpista) values (1,1,'bueno',$titulo);";
+=======
+               if( CantidadDirencia("../archivo_olimpista/$titulo/", "../archivo_comite/$titulo/",$titulo) == 0)
+                   {
+                  // echo "holas2";
+                   $usuariosube="insert into solucion_olimpista(id_lenguaje,id_problema,texto_solucion_olimpista,codigo_solucion_olimpista) values (1,1,'$texto',$titulo);";
+>>>>>>> 7af28e3066fd6347b07319c2430951ea6150d287
                     pg_query($usuariosube);
                    $ultimo="SELECT solucion_olimpista.id_solucion_olimpista FROM public.solucion_olimpista;";
                    $ultimodato=pg_query($ultimo);
@@ -481,11 +632,16 @@ class Juzgar {
                    echo "yes";
                      
                  }else{
-                     if(leerOutputFormatError("../archivo/salida/$titulo.out","../archivo/solucion/$titulo.sol")!=="formato")
+                     if(leerOutputFormatError("../archivo_olimpista/$titulo/", "../archivo_comite/$titulo/",$titulo)=="yes")
                      {
-                     if(leerWronGanswer("../archivo/salida/$titulo.out","../archivo/solucion/$titulo.sol") >0)
+                       //  echo "entro--------------------------------------------------------------------";
+                     if(leerWronGanswer("../archivo_olimpista/$titulo/", "../archivo_comite/$titulo/") >0)
                      {
+<<<<<<< HEAD
                          $usuariosube="insert into solucion_olimpista(id_lenguaje,id_problema,texto_solucion_olimpista,codigo_solucion_olimpista) values (1,1,'bueno',$titulo);";
+=======
+                         $usuariosube="insert into solucion_olimpista(id_lenguaje,id_problema,texto_solucion_olimpista,codigo_solucion_olimpista) values (1,1,'$texto',$titulo);";
+>>>>>>> 7af28e3066fd6347b07319c2430951ea6150d287
                     pg_query($usuariosube);
                    $ultimo="SELECT solucion_olimpista.id_solucion_olimpista FROM public.solucion_olimpista;";
                    $ultimodato=pg_query($ultimo);
@@ -493,19 +649,22 @@ class Juzgar {
                     {
                         $num = $arreglo['id_solucion_olimpista'];
                     }
-                    $cantidadAsierto=leerWronGanswer("../archivo/salida/$titulo.out","../archivo/solucion/$titulo.sol");                   
-                    $cantidaLineas=contarlineas("../archivo/salida/$titulo.out","../archivo/solucion/$titulo.sol");
-                     $porsentage=(100*$cantidadAsierto)/$cantidaLineas;  
-
+                    $porsentage=calificarPregunta("../archivo_olimpista/$titulo/", "../archivo_comite/$titulo/",$titulo);                   
+                   
+                   
                    $respuesta="insert into calificacion(id_solucion_olimpista,nota_calificacion ,mensaje_calificacion) values ($num,$porsentage,'RUNTIME ERROR');";
                    $categoria=pg_query($respuesta);
                   
                          echo "RUNTIME ERROR";
                      }
                      
-                     if(leerWronGanswer("../archivo/salida/$titulo.out","../archivo/solucion/$titulo.sol")==0)
+                     if(leerWronGanswer("../archivo_olimpista/$titulo/", "../archivo_comite/$titulo/")==0)
                      {
+<<<<<<< HEAD
                          $usuariosube="insert into solucion_olimpista(id_lenguaje,id_problema,texto_solucion_olimpista,codigo_solucion_olimpista) values (1,1,'bueno',$titulo);";
+=======
+                         $usuariosube="insert into solucion_olimpista(id_lenguaje,id_problema,texto_solucion_olimpista,codigo_solucion_olimpista) values (1,1,'$texto',$titulo);";
+>>>>>>> 7af28e3066fd6347b07319c2430951ea6150d287
                     pg_query($usuariosube);
                    $ultimo="SELECT solucion_olimpista.id_solucion_olimpista FROM public.solucion_olimpista;";
                    $ultimodato=pg_query($ultimo);
@@ -519,7 +678,11 @@ class Juzgar {
                             echo "WRONG ANSWER";
                      } 
                      }else{
+<<<<<<< HEAD
                               $usuariosube="insert into solucion_olimpista(id_lenguaje,id_problema,texto_solucion_olimpista,codigo_solucion_olimpista) values (1,1,'bueno',$titulo);";
+=======
+                              $usuariosube="insert into solucion_olimpista(id_lenguaje,id_problema,texto_solucion_olimpista,codigo_solucion_olimpista) values (1,1,'$texto',$titulo);";
+>>>>>>> 7af28e3066fd6347b07319c2430951ea6150d287
                     pg_query($usuariosube);
                    $ultimo="SELECT solucion_olimpista.id_solucion_olimpista FROM public.solucion_olimpista;";
                    $ultimodato=pg_query($ultimo);
@@ -536,7 +699,11 @@ class Juzgar {
                      
                  }
                }else{
+<<<<<<< HEAD
                         $usuariosube="insert into solucion_olimpista(id_lenguaje,id_problema,texto_solucion_olimpista,codigo_solucion_olimpista) values (1,1,'bueno',$titulo);";
+=======
+                        $usuariosube="insert into solucion_olimpista(id_lenguaje,id_problema,texto_solucion_olimpista,codigo_solucion_olimpista) values (1,1,'$texto',$titulo);";
+>>>>>>> 7af28e3066fd6347b07319c2430951ea6150d287
                     pg_query($usuariosube);
                    $ultimo="SELECT solucion_olimpista.id_solucion_olimpista FROM public.solucion_olimpista;";
                    $ultimodato=pg_query($ultimo);
@@ -550,9 +717,19 @@ class Juzgar {
                    echo "exsepcion time";
                }
             }
+<<<<<<< HEAD
         }
         
         if($compilar=="falla")
+=======
+        }else{
+            echo "archivos no exiten";
+            $bandera=false;
+        }
+        }
+        
+        if($compilar=="falla" && $bandera==true)
+>>>>>>> 7af28e3066fd6347b07319c2430951ea6150d287
         {
           $usuariosube="insert into solucion_olimpista(id_lenguaje,id_problema,texto_solucion_olimpista,codigo_solucion_olimpista) values (1,1,'bueno',$titulo);";
                     pg_query($usuariosube);
@@ -570,8 +747,14 @@ class Juzgar {
       exit();
        // return $this->mensaje;
     }
+<<<<<<< HEAD
         
 }  
+=======
+}
+ 
+        
+>>>>>>> 7af28e3066fd6347b07319c2430951ea6150d287
 function leer_Archivo($nombre_fichero){
         
    $fichero_texto = fopen ($nombre_fichero, "r");
@@ -634,6 +817,7 @@ function leerWronGanswer($archivo1, $archivo2)
         //echo "$archivo1.$solucion[$j] dajflsdhfklsdjhflkasjhl";
         $file1 = fopen($archivo1.$solucion[$j], "rb");
         $file2 = fopen($archivo2.$salida[$j], "rb");
+<<<<<<< HEAD
     //$nombre_fichero = ‘fichero.txt’;
     //$fichero = fopen($nombre_fichero,'rb'');
       //  echo "casi entrar";
@@ -678,6 +862,49 @@ function calificarPregunta($archivo1, $archivo2,$titu)
         $file2 = fopen($archivo2.$salida[$j], "rb");
     //$nombre_fichero = ‘fichero.txt’;
     //$fichero = fopen($nombre_fichero,'rb'');
+=======
+    //$nombre_fichero = ‘fichero.txt’;
+    //$fichero = fopen($nombre_fichero,'rb'');
+      //  echo "casi entrar";
+     
+               
+               $suma=contarArchivo($archivo2.$salida[$j]);
+    while ( ($linea1 = fgets($file1)) !== false && ($linea2 = fgets($file2)) !== false && $suma !== 0) {
+     // echo "$linea1 && $linea2";
+        $suma--;
+        if($linea1==$linea2)
+        {
+          echo "$linea2";
+           $contar++;
+        }
+        
+    }
+    fclose($file1);
+    fclose($file2);
+    }
+    echo "$contar";
+    return  $contar;
+    
+}
+
+function calificarPregunta($archivo1, $archivo2,$titu)
+{
+   
+    $contar=0;
+    $nota=0;
+    $linea=0;
+    $tipo1 = array ("sol");
+       $tipo2 = array ("out");
+     $solucion=listar_ficheros ($tipo1, $archivo1);//olimpista
+    $salida=listar_ficheros ($tipo2, $archivo2);//problema
+    $porsentage=0;
+    for($j=0; $j< sizeof($solucion); $j++ )
+    {
+        $file1 = fopen($archivo1.$solucion[$j], "rb");
+        $file2 = fopen($archivo2.$salida[$j], "rb");
+    //$nombre_fichero = ‘fichero.txt’;
+    //$fichero = fopen($nombre_fichero,'rb'');
+>>>>>>> 7af28e3066fd6347b07319c2430951ea6150d287
    
     while ( ($linea1 = fgets($file1)) !== false && ($linea2 = fgets($file2)) !== false  ) {
     
@@ -731,7 +958,11 @@ function calificarPregunta($archivo1, $archivo2,$titu)
         {
            
             if(limpia_espacios($linea1) == $linea2)
+<<<<<<< HEAD
                 {     echo "me despido";    
+=======
+                {    // echo "me despido";    
+>>>>>>> 7af28e3066fd6347b07319c2430951ea6150d287
                   $contar++;
                 }
         }
@@ -753,6 +984,7 @@ function calificarPregunta($archivo1, $archivo2,$titu)
         
     }
    // echo "$contar";
+<<<<<<< HEAD
     echo $res."-------------";
     return  $res;
     
@@ -761,6 +993,19 @@ function calificarPregunta($archivo1, $archivo2,$titu)
     $cadena = str_replace(' ', '', $cadena);
     return $cadena;
 }
+=======
+    //echo $res."-------------";
+    return  $res;
+    
+    }
+   function limpia_espacios($cadena)
+    {
+   
+    $cadena = str_replace(' ', '', $cadena);
+    return $cadena;
+    }
+
+>>>>>>> 7af28e3066fd6347b07319c2430951ea6150d287
 function contarlineas($archivo1, $archivo2)
 {
     $file1 = fopen($archivo1, "rb");
@@ -799,6 +1044,7 @@ function contarlineas($archivo1, $archivo2)
         
   //  echo contarArchivo($archivo1.$solucion[$j])."holaaaaa1".$archivo1.$solucion[$j]."olimpista";
    // echo contarArchivo($archivo2.$salida[$j])."holaaaaaa2".$archivo2.$salida[$j]."";
+<<<<<<< HEAD
     
     if(contarArchivo($archivo1.$solucion[$j])== contarArchivo($archivo2.$salida[$j]))
     {
@@ -811,6 +1057,36 @@ function contarlineas($archivo1, $archivo2)
            $contar++;
            
         }
+=======
+    //echo contarArchivo($archivo2.$salida[$j])."chauuuuuuuuuuuuuuuuuu";
+    if(contarArchivo($archivo1.$solucion[$j]) == contarArchivo($archivo2.$salida[$j]))
+    { 
+        $suma=contarArchivo($archivo2.$salida[$j]);
+       // echo $suma."cahuuuuuuuuuuuu";
+    while( ($linea1 = fgets($file1)) !== false  && ($linea2 = fgets($file2)) !== false && $suma!==0 ) 
+        {
+       $suma--;
+       //echo "-$linea1-*-$linea2-";
+         if(trim($linea1)!==trim($linea2) )
+        {
+            //echo "[[[***]]]]";
+           $contar++;
+           
+        }
+        /*
+        if(trim($linea1)!==((trim($linea2))) && $suma ==0)
+        {
+            
+            //echo "[[[***]]]]";
+           if($contar>0)
+           {
+            $contar++;
+           }
+        }
+         * 
+         */
+        
+>>>>>>> 7af28e3066fd6347b07319c2430951ea6150d287
     }
      fclose($file1);
      fclose($file2);
@@ -826,6 +1102,7 @@ return $contar;
 
 function contarArchivo($archivo1)
 {
+<<<<<<< HEAD
     
     $file1 = fopen($archivo1, "rb");
     
@@ -838,6 +1115,20 @@ function contarArchivo($archivo1)
         }
     fclose($file1);
     
+=======
+    
+    $file1 = fopen($archivo1, "rb");
+    
+    $contar=0;
+    while ( ($linea1 = fgets($file1)) !== false   ) {
+    
+       
+           $contar++;
+
+        }
+    fclose($file1);
+    
+>>>>>>> 7af28e3066fd6347b07319c2430951ea6150d287
     return $contar;
 }
 
@@ -890,8 +1181,13 @@ function eliminafila($archivo)
                 }
                 
                 $documento = implode($info,"");
+<<<<<<< HEAD
                 echo $documento."-"; 
                 echo "$contar1";
+=======
+               // echo $documento."-"; 
+               // echo "$contar1";
+>>>>>>> 7af28e3066fd6347b07319c2430951ea6150d287
                 file_put_contents("$archivo", $documento);
                 //fclose($documento);
                 
@@ -903,4 +1199,24 @@ function eliminafila($archivo)
               }
     return null;
 }
+<<<<<<< HEAD
+=======
+
+function exiteArchivo($archivo,$nombre)
+{
+    $directorio=opendir($archivo); 
+    $res=false;
+  while ($archivo = readdir($directorio))
+  {
+      if($archivo==$nombre)
+      {
+          $res=true;
+        //echo "$archivo<br>";
+      }
+  }
+closedir($directorio); 
+    return $res;
+}
+
+>>>>>>> 7af28e3066fd6347b07319c2430951ea6150d287
 ?>

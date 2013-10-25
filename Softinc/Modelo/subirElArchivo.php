@@ -42,11 +42,19 @@
             include '../vista/suvirProblemaJuez.php';
         }
     }else{ 
+<<<<<<< HEAD
         echo "selecciones lenguage";
         include '../vista/suvirProblemaJuez.php';
         }
     }else{
         echo "suba codigo";
+=======
+        echo "seleccione lenguage";
+        include '../vista/suvirProblemaJuez.php';
+        }
+    }else{
+        echo "subir codigo";
+>>>>>>> 7af28e3066fd6347b07319c2430951ea6150d287
         include '../vista/suvirProblemaJuez.php';
     }
     }else{

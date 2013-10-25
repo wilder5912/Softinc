@@ -118,5 +118,9 @@ function download_file($archivo, $downloadfilename = null) {
 
 }
 //$f=new File();
+<<<<<<< HEAD
 //echo $f->listarArchivos("../archivo_comite/","zip");
+=======
+//echo $f->listarArchivos("../archivo/","zip");
+>>>>>>> 7af28e3066fd6347b07319c2430951ea6150d287
 ?>

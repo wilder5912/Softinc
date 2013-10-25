@@ -61,12 +61,16 @@ function download_file($archivo, $downloadfilename = null) {
     }
 
 }
+<<<<<<< HEAD
 /*
+=======
+>>>>>>> 7af28e3066fd6347b07319c2430951ea6150d287
 $ruta = '../archivo';
 if(comprimir($ruta, '../archivo/test.zip'))
  echo 'Ok';
 else
  echo 'Error';
+<<<<<<< HEAD
 
 ////////
 download_file("../archivo/test.zip");
@@ -74,3 +78,10 @@ download_file("../archivo/test.zip");
  ?>
  
 
+=======
+
+////////
+download_file("../archivo/test.zip");
+?>
+
+>>>>>>> 7af28e3066fd6347b07319c2430951ea6150d287
