@@ -2,13 +2,16 @@
 session_start();
 //$_SESSION["ci_usuario"];
 ?>
+
 <!DOCTYPE html>
 <html>
     <head>
+       
         <title></title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="1.js" language="JavaScript"></script>
         <link rel="StyleSheet" href="1.css" type="text/css">
+
     </head>
     <body>
         bienvenid@ a juez SOFT-INC: <?php echo $_SESSION["nombre_usuario"];  ?><br>
@@ -17,8 +20,8 @@ session_start();
             <b>Que desea hacer</b><br>
                 <select name = "accionComite">
                     
-                    <option value = "crear">Crear nuevo Problema</option>
-                    <option value = "editar">Editar problema</option>
+                    <option value = "crear">Crear Nuevo Problema</option>
+                    <option value = "subir">Subir Archivos</option>
                     <option value = "eliminar">Eliminar problema</option>
                     <option value = "ver">Ver Perfil</option>
                     <option value = "ranking">Ver Ranking</option>

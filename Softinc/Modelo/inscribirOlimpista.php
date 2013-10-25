@@ -1,6 +1,7 @@
 <body>
 <?php
 include("cnx.php");
+pg_connect("$entrada")or die ("Error de conexion. ". pg_last_error());
 $nombreOlimpista=$_POST['NombreOlinpista'];
 $apellidoPaternoOlimpista=$_POST['ApellidoPaternoOlinpista'];
 $apellidoMaternoOlimpista=$_POST['ApellidoMaternoOlinpista'];
@@ -20,11 +21,12 @@ $apellidos=$apellidoPaternoOlimpista+" "+$apellidoMaternoOlimpista ;
 	 //include("../vista/formularioInscripcionOlimpista.php");
 	echo "Inserte correctamente los datos  ";
 	}else{    
-	$guardar = "insert into usuario(nombre_usuario,id_rol,apellido_usuario, ci_usuario, user_usuario,pass_usuario,institucion_usuario,fecha_nacimiento_usuario,email_usuario)values('$nombreOlimpista','3','$apellidos',$ciOlipista,'$usuarioOlimpista','$passwordOlinpista','$unidadEducativa','$fechaOlimpiada','$emailOlinpista');";
+	$guardar = "insert into usuario(nombre_usuario,id_rol,apellido_usuario, ci_usuario, user_usuario,pass_usuario,institucion_usuario,fecha_nacimiento_usuario,email_usuario)values('$nombreOlimpista','4','$apellidos',$ciOlipista,'$usuarioOlimpista','$passwordOlinpista','$unidadEducativa','$fechaOlimpiada','$emailOlinpista');";
 	         //('sadsa',            'pas',       1515,       'ppppp',            'rewrw',                'palmas',         '01-01-2021',    'will@');
         $sqlq=pg_query($entrada,$guardar);
-	//include("mostrar_datos_animal.php");
-	//exit;	
+	include("../Vista/formularioInscripcionOlimpista.php");
+	echo "Ya esta registrado";
+        exit;	
 	}
 ?>
 

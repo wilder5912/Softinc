@@ -15,7 +15,10 @@ $arrayDatos=$contenedor->getCadena($cadena);
 //print_r($arrayDatos);
 echo var_dump($arrayDatos);
 for($i=0;  $i<count($arrayDatos);  $i=$i+2){
-        $modificar='UPDATE usuario SET id_rol='.(integer)$arrayDatos[$i+1].' WHERE id_usuario='.(integer)$arrayDatos[$i].';';
+        $modificar=
+        'UPDATE usuario_tiene
+   SET  id_rol='.(integer)$arrayDatos[$i+1].'
+ WHERE id_usuario='.(integer)$arrayDatos[$i].';';
         $result = pg_query($cnx, $modificar) or die('ERROR AL modificar DATOS: ' . pg_last_error());
 
 }

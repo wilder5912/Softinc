@@ -1,8 +1,9 @@
  <?php
  include 'cnx.php';
+ pg_connect($entrada);
 $id = $_GET['id']; 
 $qry = "SELECT problema_archivo FROM archivo WHERE id_archivo =$id;";
-$res = pg_query($entrada,$qry);
+$res = pg_query($qry);
 while($nombreArchivo = pg_fetch_array($res))
 {
  $dato=$nombreArchivo['problema_archivo'];
