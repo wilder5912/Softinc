@@ -10,22 +10,27 @@
     <body>
         <div id="menu">
             <ul id="menu1">
+                <li>Usuarios
                 <ul>
-                    <li><a onclick="javascript:verUsuarios();"><input type="button" value="ver usuarios"></a></li><br>
-                    <li><a onclick="javascript:permisos();"> <input type="button" value="permisos"> </a></li><br>
-                    <li><a onclick="javascript:Configuracion();"><input type="button" value="configuracion"> </a></li><br>
+                    <li><a onclick="javascript:verUsuarios();"><input type="button" value="ver usuarios"></a></li>
+                    <li><a onclick="javascript:permisos();"> <input type="button" value="permisos"> </a></li>
+                    
                 </ul>
+                </li>
+                <li><a onclick="javascript:Configuracion();"><input type="button" value="configuracion"> </a></li>
+                 <a href="Salir.php"><input type="button" value="Salir"></a><br>
             </ul>
-            <a href="Salir.php"><input type="button" value="Salir"></a><br>
+            
         </div>
-        <div id="cambio">
-            <iframe   width="1000" height="600" scrolling="no" id="iMarco" >
-        </div>
+
         <script type="text/javascript">
 <!--
 iniciaMenu('menu1');
 //-->
 </script>
+        <div id="cambio">
+            <iframe   width="1000" height="600" scrolling="no" id="iMarco" >
+        </div>
         
         
         

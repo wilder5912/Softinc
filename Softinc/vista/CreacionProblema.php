@@ -21,6 +21,5 @@ session_start();
             <input type="submit" value="siguiente" name="crear" title="crear nuevo problema" >  
         </form>
          </div>
-        <a href="../vista/Salir.php"><input type="button" value="Salir"></a>
     </body>
 </html>
