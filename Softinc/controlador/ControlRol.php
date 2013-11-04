@@ -13,7 +13,7 @@ for($i=0;$i<count($recuperado);$i++){
 
 $arrayDatos=$contenedor->getCadena($cadena);
 //print_r($arrayDatos);
-echo var_dump($arrayDatos);
+//echo var_dump($arrayDatos);
 for($i=0;  $i<count($arrayDatos);  $i=$i+2){
         $modificar=
         'UPDATE usuario_tiene

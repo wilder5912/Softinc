@@ -11,12 +11,19 @@
         <div id="menu">
 <ul id="menu1">
             <input type="button" value="Ver Perfil" onclick="javascript:perfil();"><br>
-            <input type="button" value="Problema" onclick="javascript:problema();"><br>
+ <li>Problema
+        <ul>
+            <li><a onclick="javascript:problema();"><input type="button" value="Crear Problema"></a></li>
+            <li><a onclick="javascript:subir_archivos();"><input type="button" value="Subir Archivos"></a></li>
+            <li><a onclick="javascript:eliminar_problema();"><input type="button" value="Eliminar Problema"></a></li>
+            <li><a onclick="javascript:verProblema();"><input type="button" value="Ver Problema"></a></li>
+        </ul>
+  </li>
   <li>Competencia
         <ul>
             <li><a onclick="javascript:crear_competencia();"><input type="button" value="Crear Competencia"></a></li>
-            <li><a onclick="javascript:concurso_proximo();"><input type="button" value="Competencia en Servicio"></a></li>
-            <li><a onclick="javascript:sdadsa();"><input type="button" value="Proximas Competencias"></a></li>
+            <li><a onclick="javascript:dddddd();"><input type="button" value="Competencia en servicio"></a></li>
+            <li><a onclick="javascript:concurso_proximo();"><input type="button" value="Proximas Competencias"></a></li>
             <li><a onclick="javascript:dsadsa();"><input type="button" value="Anteriores Competencias"></a></li>
         </ul>
   </li>
@@ -30,7 +37,7 @@ iniciaMenu('menu1');
 //-->
 </script>
         <div id="cambio">
-            <iframe   width="1000" height="600" scrolling="no" id="iMarco" >
+            <iframe   width="1020" height="600" scrolling="yes" id="iMarco" >
         </div>
         
     </body>

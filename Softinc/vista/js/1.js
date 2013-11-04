@@ -22,8 +22,30 @@ function problema(){
 function rankin(){
      document.getElementById('iMarco').src="hgfhgfhfhh.html";
 }
+function agregar_contenido(){
+    
+}
 
-//olimpista
+function eliminar_problema(){
+     document.getElementById('iMarco').src="EliminarProblema.php";
+}
+function verProblema(){
+       document.getElementById('iMarco').src="descargar_archivo.php";
+    
+}
+
+
+
+
+
+
+
+
+//olimpista descargar_archivo
+function descargar_archivo(){
+     document.getElementById('iMarco').src="descargar_archivo.php";
+}
+
 function subirCodigo(){
      document.getElementById('iMarco').src="suvirProblemaJuez.php";
 }
