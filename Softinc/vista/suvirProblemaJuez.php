@@ -1,42 +1,76 @@
 <html>
+   <head>
+    <meta charset="utf-8">
+ 
+    <link rel="stylesheet" media="screen" href="css/estilos1.css" >
+    <script  type="text/javascript" src="js/funcion.js" > </script>
+    
+    <script type="text/javascript" src="js/jquery-1.9.0.js"></script>
+    <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+    
+    
+    <script src="js/jquery.js"></script>
+	<script>window.jQuery || document.write("<script src='js/jquery-1.5.1.min.js'>\x3C/script>")</script>
+	<script src="js/app.js"></script>
+     <link rel="stylesheet" href="css/base.css">
+ <link rel="stylesheet" href="css/skeleton.css">
+    
+    
+    
+</head>
 <body>
 
 <br><center>
-<h1 align="center">Tareas </h1>
-<form name="UserInformationForm" action="../Modelo/subirElArchivo.php" method="post" enctype="multipart/form-data" >
- <?php
-echo "<table>";
-echo "<tr>";
-	echo "<td>Seleccione tipo codigo :</td>";
-echo "</tr>";
+<h1 align="center">Subir solucion </h1>
+<div class="container">
+		
+<div class="form-bg">
+<form class="contact_form" name="UserInformationForm" action="../Modelo/subirElArchivo.php" method="post" enctype="multipart/form-data" onSubmit="return validar()" >
+   
+<table>
+<tr>
+	<td>Seleccione lenguaje de programacion :</td>
+</tr>
 
-echo "<tr>"; 
-	echo "<td><input type='radio' name='tipoCodigo' size='40' maxlength='40' value='java' checked /> java</td>";
-echo "</tr>";
-echo "<tr>";
-	echo "<td><input type='radio' name='tipoCodigo' size='40' maxlength='40' value='c' /> c</td>";
-echo "</tr>";
-echo "<tr>";
-	echo "<td><input type='radio' name='tipoCodigo' size='40' maxlength='40' value='cpp'/> c++</td>";
-echo "</tr>";
+<tr> 
+	<td><input type='radio'  name='tipoCodigo' size='40' maxlength='40' value='java'  required /> java</td>
+</tr>
+<tr>
+	<td><input type='radio' name='tipoCodigo' size='40' maxlength='40' value='c' required /> c</td>
+</tr>
+<tr>
+	<td><input type='radio' name='tipoCodigo' size='40' maxlength='40' value='cpp' required /> c++</td>
+</tr>
 
-echo "<tr>";
-	echo "<td>Titulo :</td><td><input type='text' name='titulo' size='40' maxlength='40'/></td>";
-echo "</tr>";
+<tr>
+    <td>Codigo de problema :</td>
+</tr>
+<tr><td><input type='text' id='num' name='titulo' size='40' maxlength='40' placeholder="codigo problema"  required /></td></tr>
+<tr> 
+	<td><input type='radio' id="seleccion1" name='subir' size='40' maxlength='40' value='Escriva codigo'  required /> Escriva codigo</td>
+        <td><input type='radio' id="seleccion2" name='subir' size='40' maxlength='40' value='Suba codigo' required /> Suba codigo</td>
+        
+</tr>
 
-echo "<td>codigo fuente :</td>";
-echo "<tr>";
-	echo "<td colspan='3' > <textarea id = 'tex' rows='5' name='codigoFuente' cols='40'></textarea>";
-echo "</tr>";
+<td>Codigo fuente :</td>
 
-echo "<td colspan='3'> <input name='programa' type='file' size='35' />";
-echo "</table>";
-?>	
-<input type='submit' name='enviar' value='juzgar Codigo'/>
+<tr>
+	<td colspan='3' > <textarea id = 'texto' rows='5' name='codigoFuente' cols='40'  placeholder="escriba codigo fuente"  > </textarea>
+</tr>
+
+
+<td colspan='3'><input id="codigo" name='programa' type='file' size='35' />
+</table>
+
+<input type='submit' name='enviar' value='juzgar Codigo' id="boton" require />
 </form>
+
+    
+    
 <div align="center"><br>
-  <div align="center">
-  <a href="inicio.php">Volver</a>
+  <div align="center">   
+ <a href="../vista/principal.html">Volver a pagina principal </a> 
+ 
 </div>
 </body>
 </html>

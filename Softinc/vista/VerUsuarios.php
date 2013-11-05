@@ -11,6 +11,9 @@
         <h1></h1>
         <table>
       <?php
+       include '../Modelo/Consulta.php';
+    $p=new Consulta();
+    $p->generarTablaUsuarios();
       echo $p->titulo;
       echo $p->col;
       $i=0;

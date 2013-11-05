@@ -10,10 +10,14 @@ $pass = $_POST['pass'];
  
 //$pass=sha1(md5($pass));
  
-    $seleccionar="SELECT id_usuario, id_rol, nombre_usuario, apellido_usuario, ci_usuario, 
-                  user_usuario, pass_usuario, institucion_usuario
-                  FROM usuario
-                  where user_usuario='$user' and pass_usuario='$pass';";
+    $seleccionar="SELECT usuario.id_usuario, nombre_usuario, apellido_usuario, ci_usuario, user_usuario, 
+                  pass_usuario, institucion_usuario, fecha_nacimiento_usuario, 
+                  email_usuario, rol.id_rol
+                  FROM usuario, usuario_tiene, rol
+                  where  usuario.id_usuario=usuario_tiene.id_usuario and 
+                  usuario_tiene.id_rol=rol.id_rol
+                  and user_usuario='$user' and pass_usuario='$pass';";
+    
     $result     = pg_query($seleccionar) or die('ERROR AL INSERTAR DATOS: ' . pg_last_error());
     
 
@@ -27,11 +31,14 @@ $pass = $_POST['pass'];
        echo $_SESSION["ci_usuario"]      = $datos["ci_usuario"];
        echo $_SESSION["user_usuario"]    = $datos["user_usuario"];
        echo $_SESSION["pass_usuario"]    = $datos["pass_usuario"];
-       if(!strcmp($datos["id_rol"], "1")){
-            header("Location: ../vista/Comite.php");
+       if(!strcmp($datos["id_rol"], "2")){
+            header("Location: ../vista/MainComite.php");
        }
-       else if(!strcmp($datos["id_rol"], "2")){
-            header("Location: ../vista/Administrador.php");
+       else if(!strcmp($datos["id_rol"], "1")){
+            header("Location: ../vista/MainADM.php");
+       }
+       else if(!strcmp($datos["id_rol"], "3")){
+            header("Location: ../vista/MainOlimpista.php");
        }
 } else {
  
