@@ -18,9 +18,9 @@
 	<div id="header">
 		<div id="menu">
 			<ul>
-				<li><a href="#" class="first">Home</a></li>
-				<li class="current_page_item"><a href="#">Olimpiadas</a></li>
-				<li><a href="#">About</a></li>
+				<li><a href="#" class="first">Inicio</a></li>
+				<!--<li class="current_page_item"><a href="#">Olimpiadas</a></li>-->
+				<li><a href="#">Olimpiadas</a></li>
 				<li><a href="#">Perfil</a></li>
 				<li><a href="#">Cerrar Sesion</a></li>
 			</ul>
