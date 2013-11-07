@@ -27,7 +27,7 @@
         </form>
         
 
-        <a href="../vista/Comite.php" target="_self">  <input type="button" value="terminar" name="terminar"></a>
+        <a href="../controlador/archivosComite.php" target="_self">  <input type="button" value="terminar" name="terminar"></a>
 
          </div>
     </body>

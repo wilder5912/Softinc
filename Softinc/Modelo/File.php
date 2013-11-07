@@ -93,6 +93,9 @@ function download_file($archivo, $downloadfilename = null) {
         exit;
     }
 }
+
+
+
     function listarArchivos( $path, $tipo ){
   //     session_start();
     // Abrimos la carpeta que nos pasan como parámetro
@@ -133,9 +136,8 @@ unlink($archivos_carpeta);
  
 rmdir($carpeta);
 }
-// Llamamos a la función para que nos muestre el contenido de la carpeta gallery
 
 }
-$f=new File();
-echo $f->listarArchivos("../archivo_comite/","zip");
+//$f=new File();
+//echo $f->download_file("../archivo_comite/4/4.zip");
 ?>
