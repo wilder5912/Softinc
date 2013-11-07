@@ -21,7 +21,7 @@
 <body>
 
 <br><center>
-<h1 align="center">Subir solucion </h1>
+<h1 align="center">Presentar solucion </h1>
 <div class="container">
 		
 <div class="form-bg">
@@ -47,7 +47,7 @@
 </tr>
 <tr><td><input type='text' id='num' name='titulo' size='40' maxlength='40' placeholder="codigo problema"  required /></td></tr>
 <tr> 
-	<td><input type='radio' id="seleccion1" name='subir' size='40' maxlength='40' value='Escriva codigo'  required /> Escriva codigo</td>
+	<td><input type='radio' id="seleccion1" name='subir' size='40' maxlength='40' value='Escriba codigo'  required /> Escriba codigo</td>
         <td><input type='radio' id="seleccion2" name='subir' size='40' maxlength='40' value='Suba codigo' required /> Suba codigo</td>
         
 </tr>
