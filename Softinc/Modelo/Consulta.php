@@ -164,6 +164,44 @@ function generarTablaEliminarProblema(){
     }
     
     
+        function generarArchivosSubidosComite(){ //solo para comite
+        
+        include("../modelo/cnx.php");
+        session_start();
+        $cnx = pg_connect($entrada) or die ("Error de conexion. ". pg_last_error());
+        $seleccionar=   'SELECT id_problema, usuario.id_usuario, nombre_problema
+                         FROM problema, usuario
+                         where usuario.id_usuario=problema.id_usuario
+                         and usuario.id_usuario='.$_SESSION["id_usuario"];
+        
+        $result     = pg_query($seleccionar) or die('ERROR AL INSERTAR DATOS: ' . pg_last_error());
+        $columnas   = pg_numrows($result);
+        $this->formu.='<table>';
+        $this->formu.='<tr><td>Identificador</td>';
+        $this->formu.='<td>Nombre problema</td>';
+        $this->formu.='<td>Descargar</td></tr>';
+        for($i=0;$i<=$columnas-1; $i++){
+            $line = pg_fetch_array($result, null, PGSQL_ASSOC);
+            $nombre=$line['id_problema'];
+               $this->formu.='<tr>             
+               <td>'.$line['id_problema'].'</td> 
+               <td>'.$line['nombre_problema'].'</td>
+               <td><a href="../archivo_comite/'.$nombre.'/'.$nombre.".zip".'"> descargar </a></td>
+               </tr>';
+             
+        }  
+        $this->formu.='</table>';
+        return $this->formu;    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
         function generarArchivos(){
         
         include("../modelo/cnx.php");
@@ -217,15 +255,19 @@ function generarTablaEliminarProblema(){
 
            return $this->formu;    
     }
+    
+    
         function generaListaCompetenciaPermitidosComite(){
                       
                   include("../modelo/cnx.php");
                   $cnx = pg_connect($entrada) or die ("Error de conexion. ". pg_last_error());
                   session_start();
-                  $seleccionar="SELECT id_competencia, id_usuario, nombre_competencia, fecha_inicio_competencia, 
-                                fecha_fin_competencia
-                                FROM competencia
-                                where id_usuario=".$_SESSION["id_usuario"];
+                  $seleccionar="SELECT competencia.id_competencia, nombre_competencia, fecha_inicio_competencia, 
+       hora_inicio_competencia, duracion_competencia
+  FROM usuario, competencia, usuario_pertenece
+where usuario.id_usuario=usuario_pertenece.id_usuario and
+	usuario_pertenece.id_competencia=competencia.id_competencia and
+	usuario.id_usuario=".$_SESSION["id_usuario"];
     
                 $result     = pg_query($seleccionar) or die('ERROR AL INSERTAR DATOS: ' . pg_last_error());
                 $columnas   = pg_numrows($result);
@@ -307,6 +349,6 @@ function generarTablaEliminarProblema(){
     
 }
 //$c=new Consulta();
-//echo $c->verProblemas("69");
+//echo $c->generarArchivosSubidosComite();
 
 ?>
