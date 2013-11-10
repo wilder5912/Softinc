@@ -3,15 +3,14 @@
 require_once 'cabecera.php';
 
 
-$tipoUsuario="olimpista";
-
-if( strcmp($tipoUsuario,"olimpista")==0 )
+$nombreRol = $_GET["nombre_rol"];
+if( strcmp($nombreRol,"olimpista") == 0 )
 {
     require_once 'olimpistaIndex.php';
 }
 else{
-    if(strcmp($tipoUsuario,"comite")==0 )
-    {
+    if(strcmp($nombreRol,"comite") == 0 )
+    {require_once 'pie.php';
          require_once 'comiteIndex.php';
     }
     else{

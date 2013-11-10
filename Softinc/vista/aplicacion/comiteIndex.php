@@ -15,7 +15,7 @@
                     <li><a href="#">Top 10 olimpistas</a></li>
                 </ul>
            </td>
-           <td><iframe name="frame-principal" src="https://www.google.com.bo" width="100%" height="100%" frameborder="0"></iframe></td>
+           <td><iframe name="frame-principal" src="introduccion.php" width="100%" height="100%" frameborder="0"></iframe></td>
        </tr>
    </table>
 </div>
